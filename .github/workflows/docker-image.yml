@@ -1,0 +1,39 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: docker login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+      run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+    - name: docker build latest
+      run: docker build . -t redteamcafe/ubuntu:latest
+    - name: docker build amd64
+      run: docker build -f Dockerfile -t redteamcafe/ubuntu:amd64
+    - name: docker build armhf
+      run: docker build -f Dockerfile.armhf -t redteamcafe/ubuntu:arm32v7
+    - name: docker build aarm64
+      run: docker build -f Dockerfile.aarm64 -t redteamcafe/ubuntu:arm64v8
+    - name: docker build 386
+      run: docker build -f Dockerfile.386 -t redteamcafe/ubuntu:i386
+
+    - name: docker push latest
+      run: docker push redteamcafe/ubuntu:latest
+    - name: docker push amd64
+      run: docker push redteamcafe/ubuntu:amd64
+    - name: docker push armhf
+      run: docker push redteamcafe/ubuntu:arm32v7
+    - name: docker push aarm64
+      run: docker push redteamcafe/ubuntu:arm64v8
+    - name: docker push 386
+      run: docker push redteamcafe/ubuntu:i386
