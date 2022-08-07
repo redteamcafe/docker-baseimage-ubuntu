@@ -1,0 +1,11 @@
+FROM arm32v7/ubuntu:22.04 as rootfs-stage
+
+ENV DIST ubuntu
+ENV REV 20.04
+ENV ARCH aarch64
+
+#NOTE: Install required packages
+#RUN apt-get update && apt-get install -y --no-install-recommends \
+
+COPY root/ /
+ENTRYPOINT ["/init"]
