@@ -7,5 +7,6 @@ ENV ARCH x86_64
 #NOTE: Install required packages
 #RUN apt-get update && apt-get install -y --no-install-recommends \
 
-COPY root/ /
+#COPY root/ /
+COPY init /
 ENTRYPOINT ["/init"]
