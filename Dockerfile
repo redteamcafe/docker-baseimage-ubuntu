@@ -1,7 +1,7 @@
-FROM ubuntu:20.04 as rootfs-stage
+FROM ubuntu:22.04 as rootfs-stage
 
 ENV DIST ubuntu
-ENV REV 20.04
+ENV REV 22.04
 ENV ARCH x86_64
 
 #NOTE: Install required packages
