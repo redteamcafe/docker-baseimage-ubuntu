@@ -9,4 +9,5 @@ ENV ARCH x86_64
 
 #COPY root/ /
 COPY init /
+RUN chmod +x /init
 ENTRYPOINT ["/init"]
