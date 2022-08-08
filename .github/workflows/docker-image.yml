@@ -19,7 +19,6 @@ jobs:
 
     - name: docker build latest
       run: docker build -f Dockerfile -t redteamcafe/ubuntu:latest .
-    - name: docker push latest
       run: docker push redteamcafe/ubuntu:latest
 
     - uses: uraimo/run-on-arch-action@v2
@@ -28,7 +27,6 @@ jobs:
         arch: amd64
         distro: ubuntu22.04
       run: docker build -f Dockerfile -t redteamcafe/ubuntu:amd64 .
-    - name: docker push amd64
       run: docker push redteamcafe/ubuntu:amd64      
 
     - uses: uraimo/run-on-arch-action@v2
@@ -37,7 +35,6 @@ jobs:
         arch: arm32v7
         distro: ubuntu22.04
       run: docker build -f Dockerfile.armhf -t redteamcafe/ubuntu:arm32v7 .
-    - name: docker push armhf
       run: docker push redteamcafe/ubuntu:arm32v7
 
     - uses: uraimo/run-on-arch-action@v2
@@ -46,7 +43,6 @@ jobs:
         arch: arm64v8
         distro: ubuntu22.04
       run: docker build -f Dockerfile.aarm64 -t redteamcafe/ubuntu:arm64v8 .
-    - name: docker push aarm64
       run: docker push redteamcafe/ubuntu:arm64v8
 
 
