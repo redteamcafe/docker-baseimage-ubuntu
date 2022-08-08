@@ -22,30 +22,27 @@ jobs:
     - name: docker push latest
       run: docker push redteamcafe/ubuntu:latest
 
-    - uses: actions/checkout@v3
       name: docker build amd64
       with:
         arch: amd64
         distro: ubuntu22.04
-        run: docker build -f Dockerfile -t redteamcafe/ubuntu:amd64 .
+      run: docker build -f Dockerfile -t redteamcafe/ubuntu:amd64 .
     - name: docker push amd64
       run: docker push redteamcafe/ubuntu:amd64      
 
-    - uses: actions/checkout@v3
     - name: docker build armhf
       with:
         arch: arm32v7
         distro: ubuntu22.04
-        run: docker build -f Dockerfile.armhf -t redteamcafe/ubuntu:arm32v7 .
+      run: docker build -f Dockerfile.armhf -t redteamcafe/ubuntu:arm32v7 .
     - name: docker push armhf
       run: docker push redteamcafe/ubuntu:arm32v7
 
-    - uses: actions/checkout@v3
     - name: docker build aarm64
       with:
         arch: arm64v8
         distro: ubuntu22.04
-        run: docker build -f Dockerfile.aarm64 -t redteamcafe/ubuntu:arm64v8 .
+      run: docker build -f Dockerfile.aarm64 -t redteamcafe/ubuntu:arm64v8 .
     - name: docker push aarm64
       run: docker push redteamcafe/ubuntu:arm64v8
 
