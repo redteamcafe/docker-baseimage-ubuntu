@@ -1,4 +1,4 @@
-FROM ubuntu:22.04 as rootfs-stage
+FROM ubuntu:22.04
 
 ENV DIST ubuntu
 ENV REV 22.04
@@ -8,5 +8,6 @@ ENV ARCH x86_64
 #RUN apt-get update && apt-get install -y --no-install-recommends \
 
 #COPY root/ /
-COPY init /
-ENTRYPOINT ["/init"]
+COPY init.sh /
+RUN chmod +x /init.sh
+ENTRYPOINT ["/bin/bash", "/init.sh"]
