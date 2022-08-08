@@ -22,7 +22,7 @@ jobs:
     - name: docker push latest
       run: docker push redteamcafe/ubuntu:latest
 
-      name: docker build amd64
+    - name: docker build amd64
       with:
         arch: amd64
         distro: ubuntu22.04
