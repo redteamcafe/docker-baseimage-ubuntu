@@ -8,6 +8,6 @@ ENV ARCH x86_64
 #RUN apt-get update && apt-get install -y --no-install-recommends \
 
 #COPY root/ /
-COPY init /
-RUN chmod +x /init
-ENTRYPOINT ["/init"]
+COPY init.sh /
+RUN chmod +x /init.sh
+ENTRYPOINT ["/bin/bash", "/init.sh"]
