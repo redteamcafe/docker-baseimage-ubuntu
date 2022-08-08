@@ -19,7 +19,7 @@ jobs:
     - name: Setup Docker Buildx
       id: buildx
       uses: docker/setup-buildx-action@v1
-      with:
+      env:
         version: latest
     - name: Login to Docker Hub
       with:
