@@ -22,7 +22,7 @@ jobs:
       with:
         version: latest
     - name: Login to Docker Hub
-      with:
+      env:
         USER: ${{ secrets.DOCKER_USER }}
         PASS: ${{ secrets.DOCKER_PASS }}
       run: docker login -u $USER -p $PASS
