@@ -1,4 +1,4 @@
-FROM ubuntu:22.04 as rootfs-stage
+FROM ubuntu:22.04
 
 ENV DIST ubuntu
 ENV REV 22.04
